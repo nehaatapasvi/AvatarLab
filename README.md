@@ -100,11 +100,13 @@ npm start
 
 Check out our avatar generation in action:
 
-![AvatarLab Demo](assets/videos/sadtalker.mp4)
+<div align="center">
+  <video src="https://github.com/nehaatapasvi/AvatarLab/assets/videos/sadtalker.mp4" width="600" controls autoplay muted></video>
+</div>
 
 *See how static images come to life with synchronized speech and natural lip movements*
 
-**📹 [Download Demo Video](assets/videos/sadtalker.mp4) | 🌐 [Watch on GitHub](https://github.com/nehaatapasvi/AvatarLab/blob/main/assets/videos/sadtalker.mp4)*
+**📹 [Download Demo Video](assets/videos/sadtalker.mp4)**
 
 ## � API Endpoints
 
