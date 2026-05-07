@@ -100,9 +100,11 @@ npm start
 
 Check out our avatar generation in action:
 
-[📹 Watch Demo Video](assets/videos/sadtalker.mp4)
+https://github.com/nehaatapasvi/AvatarLab/assets/videos/sadtalker.mp4
 
 *See how static images come to life with synchronized speech and natural lip movements*
+
+*Alternatively: [📹 Download Demo Video](assets/videos/sadtalker.mp4)*
 
 ## � API Endpoints
 
