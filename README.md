@@ -1,174 +1,153 @@
 
 
-# AvatarGenerator
+# AvatarLab - Interactive Avatar Creation Platform
 
-AvatarGenerator is a modern web application that brings images to life by generating talking avatar videos using advanced AI voice synthesis and lip-sync technology. The platform enables users to upload an image, input a script, and receive a video of the avatar speaking the provided text with realistic lip movements and natural-sounding speech.
+🚀 **Transform static images into dynamic talking avatars with cutting-edge technology**
 
-## 🚀 Features
-- **AI Voice Synthesis:** Converts text into natural, expressive speech.
-- **Lip Sync Technology:** Synchronizes generated audio with avatar lip movements.
-- **User Authentication:** Secure registration and login system.
-- **Modern UI:** Responsive React-based frontend for seamless user experience.
-- **Generation History:** Stores and displays user’s previous avatar generations.
-- **Real-time Processing:** Fast, on-demand avatar video creation.
+## ✨ Features
+
+- **🎭 Avatar Creation** - Upload any image and bring it to life
+- **🎤 Voice Generation** - Convert text to natural speech
+- **🎬 Video Production** - Generate synchronized talking avatar videos
+- **👤 User Management** - Secure accounts with generation history
+- **📱 Modern UI** - Sleek, responsive React interface
+- **⚡ Real-time Processing** - Fast on-demand avatar generation
 
 ## 🏗️ Architecture
-- **Frontend:** React (JavaScript) for user interface and interactions.
-- **Backend:** Flask (Python) REST API for processing, authentication, and orchestration.
-- **Database:** MongoDB for user data and generation history.
-- **AI Models:** Integrates TTS (Text-to-Speech) and lip-sync models (e.g., DreamTalk, Wav2Lip).
 
 ```
-new-avatar-project/
-├── frontend/      # React app
-├── backend/       # Flask API
-├── models/        # TTS models (not included in repo)
-├── Backendmodels/ # DreamTalk/Wav2Lip models (not included in repo)
-├── static/        # Generated audio/video files
+avatarLab/
+├── frontend/      # React web application
+├── backend/       # Flask REST API
+├── static/        # Generated media files
 └── README.md
 ```
 
-## 🛠️ Installation & Setup
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 18** - Modern component-based UI
+- **React Router** - Smooth navigation
+- **Axios** - API communication
+- **React Dropzone** - File uploads
+- **React Hot Toast** - User notifications
+
+### Backend
+- **Flask** - Python web framework
+- **MongoDB** - NoSQL database
+- **JWT** - Secure authentication
+- **BCrypt** - Password hashing
+
+## � Quick Start
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- Python (v3.8 or higher)
-- MongoDB (local or Atlas)
-- Pretrained AI models (see below)
+- Node.js (v16+)
+- Python (v3.8+)
+- MongoDB
 
-### 1. Clone the Repository
+### Installation
+
+1. **Clone & Setup**
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd new-avatar-project
+git clone <repository-url>
+cd avatarLab
 ```
 
-### 2. Backend Setup
+2. **Backend Setup**
 ```bash
 cd backend
 python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Frontend Setup
+3. **Frontend Setup**
 ```bash
 cd ../frontend
 npm install
 ```
 
-### 4. Model Setup
-- Download or copy the required TTS and lip-sync models into `models/` and `Backendmodels/` directories.
-- These are not included in the repository due to size.
-
-### 5. Environment Variables
-Create a `.env` file in the `backend/` directory:
+4. **Environment Configuration**
+Create `.env` in backend/:
 ```
 MONGODB_URI=mongodb://localhost:27017/
 JWT_SECRET=your-secret-key
-DREAMTALK_PATH=/path/to/dreamtalk
 ```
 
-### 6. Running the Application
-- **Start MongoDB** (if running locally):
-  ```bash
-  mongod
-  ```
-- **Start Backend:**
-  ```bash
-  cd backend
-  python app.py
-  ```
-- **Start Frontend:**
-  ```bash
-  cd frontend
-  npm start
-  ```
+5. **Run Application**
+```bash
+# Start MongoDB
+mongod
+
+# Start Backend (Terminal 1)
+cd backend
+python app.py
+
+# Start Frontend (Terminal 2)
+cd frontend
+npm start
+```
 
 ## 🌐 Usage
-- Register or log in via the web interface.
-- Upload an image and enter your script.
-- Generate and preview/download your talking avatar video.
-- View your generation history in the dashboard.
 
-## 🔧 API Endpoints (Backend)
-- `POST /api/auth/register` — Register a new user
-- `POST /api/auth/login` — User login
-- `POST /api/generate_avatar` — Generate avatar video
-- `GET /api/history` — Get user’s generation history
-- `GET /api/dashboard` — Get dashboard stats
+1. **Sign Up** - Create your account
+2. **Upload Image** - Choose any portrait or character
+3. **Add Script** - Type what you want the avatar to say
+4. **Generate** - Create your talking avatar video
+5. **Download** - Save your creation
 
-## 📊 Database Schema (Example)
-**Users Collection:**
-```json
-{
-  "_id": "uuid",
-  "email": "user@example.com",
-  "password": "hashed_password",
-  "created_at": "datetime"
-}
-```
-**Generations Collection:**
-```json
-{
-  "_id": "uuid",
-  "user_id": "user_uuid",
-  "text": "script text",
-  "image_file": "filename.jpg",
-  "audio_file": "filename.wav",
-  "video_file": "filename.mp4",
-  "created_at": "datetime",
-  "status": "completed|processing|failed"
-}
-```
+## 🎬 Demo
 
-## 🔒 Security
+Check out our avatar generation in action:
+
+[📹 Watch Demo Video](assets/videos/sadtalker.mp4)
+
+*See how static images come to life with synchronized speech and natural lip movements*
+
+## � API Endpoints
+
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User authentication
+- `POST /api/generate_avatar` - Create avatar video
+- `GET /api/history` - User generation history
+- `GET /api/dashboard` - User statistics
+
+## � Security Features
+
 - JWT-based authentication
-- Password hashing (bcrypt)
-- CORS and input validation
+- Encrypted password storage
+- CORS protection
+- Input validation and sanitization
 
-## 🚀 Deployment
-- **Frontend:**
-  ```bash
-  cd frontend
-  npm run build
-  # Deploy the build/ folder to your static hosting
-  ```
-- **Backend:**
-  ```bash
-  cd backend
-  gunicorn -w 4 -b 0.0.0.0:5001 app:app
-  # Or use your preferred WSGI server
-  ```
+## 🎯 Perfect For
+
+- **Content Creators** - Spokesperson videos
+- **Education** - Animated learning content
+- **Marketing** - Product demonstrations
+- **Social Media** - Engaging avatar content
+- **Personal Use** - Custom video messages
+
+## � Project Stats
+
+- **Frontend**: 13+ React components
+- **Backend**: Full REST API with authentication
+- **Database**: MongoDB with user and generation collections
+- **Features**: Complete avatar generation pipeline
 
 ## 🤝 Contributing
+
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
 ## 📝 License
-This project is licensed under the MIT License.
 
-## 🆘 Support
-For support, please open an issue in the repository or contact the development team.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-**Happy Avatar Generating! 🎭✨** -->
 
+**🎭 Create Amazing Avatars with AvatarLab!**
 
-
-<!-- <!--
-# Previous README content commented out for reference
-
-# Avatar Lab - AI Video Generator
-A modern web application that generates talking avatar videos using AI voice synthesis and lip-sync technology.
-... (previous content omitted for brevity) ...
--->
-=======
-# AvatarLab-G435-PS25
-Repo for AvatarLab PS project
->>>>>>> 585b95e7bae5b359b483c08909b5b5897a757a97
+*Built with passion for interactive digital experiences*
